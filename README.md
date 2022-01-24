@@ -1,8 +1,14 @@
 # Karaoke Web App
 
 ## What Is This?
+**This is a web application for Karaoke DJ's. It allows the DJ to upload their library of karaoke songs and display them to their patrons. It also allows them see where the DJ will be for the rest of the week**
 
 ## Why Create It?
+**My Dad does Karaoke DJ work in his retirement, mostly because he loves doing it. He got into the hobby when I was a young child. In those days, you used Karaoke VCD's in a special Karaoke machine. You also had large, prinited out books for singers to look through to see what songs you had**
+
+**Nowdays, your library is kept on a hard drive and the books are long gone. They aren't practical for multiple reasons, but mostly because your library of karaoke music is always changing when you purchase new songs. For the most part, a singer will either know the DJ and ask if they have a song, or turn in a paper slip with the artist song and name and hope they have the song (something we also aim to improve on in V2 of this app)**
+
+**So this app is for him, and if he likes it then I will make it avalible to other DJ's*
 
 ## What Tech Does It Use?
 
