@@ -8,7 +8,7 @@
 
 **Nowdays, your library is kept on a hard drive and the books are long gone. They aren't practical for multiple reasons, but mostly because your library of karaoke music is always changing when you purchase new songs. For the most part, a singer will either know the DJ and ask if they have a song, or turn in a paper slip with the artist song and name and hope they have the song (something we also aim to improve on in V2 of this app)**
 
-**So this app is for him, and if he likes it then I will make it avalible to other DJ's*
+**So this app is for him, and if he likes it then I will make it avalible to other DJ's**
 
 ## What Tech Does It Use?
 
