@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "../Components/Button/Button";
+import Search from "../Components/Search/Search";
 import './Dashboard.css'
 
 export default function Dashboard() {
   // Mock data just to get something going on the frontend while I figure out the backend
   const title = "Marshall Entertainment";
+  const searchPlaceholder = "Search By Artist..."
 
   return (
     <div className="dashboard">
@@ -15,6 +17,7 @@ export default function Dashboard() {
           <Button title="VIEW BY ARTIST"/>
           <Button title="VIEW BY TITLE" btnClass="title-btn"/>
       </div>
+      <Search placeholder={searchPlaceholder}/>
     </div>
   );
 }
