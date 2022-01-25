@@ -1,4 +1,10 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
-    font-size: 25px;
-    text-align: center;
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 16px;
 }

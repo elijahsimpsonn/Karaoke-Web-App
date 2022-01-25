@@ -1,3 +1,8 @@
 .button {
     border: 1px solid white;
+    text-align: center;
+    width: fit-content;
+    align-self: center;
+    padding: 9px 25px;
+    border-radius: 4px;
 }
