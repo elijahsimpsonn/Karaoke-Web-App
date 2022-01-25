@@ -9,7 +9,12 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <div className="title">{title}</div>
-      <Button title="View Weekly Schedule" />
+      <Button title="VIEW WEEKLY SCHEDULE" />
+      <hr className="line"/>
+      <div className="selection-buttons">
+          <Button title="VIEW BY ARTIST"/>
+          <Button title="VIEW BY TITLE" btnClass="title-btn"/>
+      </div>
     </div>
   );
 }
