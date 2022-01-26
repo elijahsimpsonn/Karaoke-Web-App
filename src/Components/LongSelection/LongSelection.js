@@ -2,7 +2,7 @@ import React from "react";
 import "./LongSelection.css";
 
 export default function LongSelection(props) {
-  const { type, artist, title } = props;
+  const { type, artist, title } = props
 
   if (type && type === "artist") {
     return (

@@ -8,7 +8,7 @@ export default function Dashboard() {
   // Mock data just to get something going on the frontend while I figure out the backend
 
   const [selectedBtn, setSelectedBtn] = useState("artist");
-  console.log(selectedBtn);
+  const [searchValue, setSearchValue] = useState("");
 
   const title = "Marshall Entertainment";
   const searchPlaceholder = "Search By Artist...";
@@ -23,21 +23,38 @@ export default function Dashboard() {
     },
     {
       artist: "Adele",
-      title: "",
+      title: "Rolling in the Deep",
     },
     {
       artist: "Aerosmith",
-      title: "",
+      title: "I Don't Want To Miss a Thing",
     },
     {
       artist: "Al Green",
-      title: "",
+      title: "For the Good Times",
     },
     {
       artist: "alabama",
-      title: "",
+      title: "Dixieland Delight",
     },
   ];
+
+  const [filteredSongs, setFilteredSongs] = useState(mockData);
+
+  const filterSongs = (event) => {
+    const value = event.target.value;
+    if (value !== "") {
+      const results = mockData.filter((song) => {
+        if (selectedBtn === "title") {
+          return song.title.toLowerCase().includes(value.toLowerCase());
+        } else return song.artist.toLowerCase().includes(value.toLowerCase());
+      });
+      setFilteredSongs(results);
+    } else {
+      setFilteredSongs(mockData);
+    }
+    setSearchValue(value);
+  };
 
   return (
     <div className="dashboard">
@@ -60,14 +77,27 @@ export default function Dashboard() {
       </div>
       <Search placeholder={searchPlaceholder} />
       <div>
-        {selectedBtn === "artist" &&
-          mockData.map((obj, index) => {
-            return <LongSelection key={index} type={selectedBtn} artist={obj.artist} />;
-          })}
         {selectedBtn === "title" &&
-          mockData.map((obj, index) => {
-            return <LongSelection key={index} type={selectedBtn} artist={obj.artist} title={obj.title}/>;
-          })}
+          filteredSongs
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .map((song, index) => (
+              <LongSelection
+                key={index}
+                type={selectedBtn}
+                artist={song.artist}
+                title={song.title}
+              />
+            ))}
+        {selectedBtn === "artist" &&
+          filteredSongs
+            .sort((a, b) => a.artist.localeCompare(b.artist))
+            .map((song, index) => (
+              <LongSelection
+                key={index}
+                type={selectedBtn}
+                artist={song.artist}
+              />
+            ))}
       </div>
     </div>
   );
