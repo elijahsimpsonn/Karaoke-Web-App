@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Components/Button/Button";
 import Search from "../Components/Search/Search";
+import LongSelection from "../Components/LongSelection/LongSelection";
 import './Dashboard.css'
 
 export default function Dashboard() {
@@ -18,6 +19,9 @@ export default function Dashboard() {
           <Button title="VIEW BY TITLE" btnClass="title-btn"/>
       </div>
       <Search placeholder={searchPlaceholder}/>
+      <div>
+          <LongSelection artist="test"/>
+      </div>
     </div>
   );
 }
