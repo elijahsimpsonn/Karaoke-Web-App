@@ -38,7 +38,7 @@
 </div>
 
 ## Who Is Creating This?
-**I'm [Elijah Simpson](elijahsimpson.com), a Project Manager by trade and an Engineer in my freetime.**
+**I'm [Elijah Simpson](https://www.elijahsimpson.com/), a Project Manager by trade and an Engineer in my freetime.**
 
 ## What Is Next?
 **I have ideas, but lets get an MVP done first**
