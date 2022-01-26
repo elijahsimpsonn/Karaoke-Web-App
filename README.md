@@ -11,8 +11,22 @@
 **So this app is for him, and if he likes it then I will make it avalible to other DJ's**
 
 ## What Tech Does It Use?
+### Frontend
+**IN PROGRESS**
+### Backend
+**IN PROGRESS**
 
 ## What Is The Idea For The MVP?
+
+### User Stories
+#### Patron
+* I can see a full list of songs avalible for me to sing.
+* I can filter these songs by title or artist and search for songs
+* I can see where the DJ will be for the rest of the current week
+#### DJ (Admin)
+* I can scan my harddrive and save the contents as a list of songs to a database
+* I have full CRUD abilites on my songs after I have scanned them
+* I can set my work schedule for patrons to view (as far out as I want)
 
 ### Figma Design (In Progress)
 #### User View
@@ -24,5 +38,7 @@
 </div>
 
 ## Who Is Creating This?
+**I'm [Elijah Simpson](elijahsimpson.com), a Project Manager by trade and an Engineer in my freetime.**
 
 ## What Is Next?
+**I have ideas, but lets get an MVP done first**
