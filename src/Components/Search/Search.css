@@ -1,12 +1,18 @@
 .search-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .search {
-    background-color: #201a44;
-    color: white;
-    border: none;
-    border-bottom: 1px solid white;
-    width: 55%;
+  background-color: #201a44;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  width: 55%;
+  padding-bottom: 10px;
+  padding-left: 0px;
+}
+
+.search:focus {
+  outline: none;
 }
