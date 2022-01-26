@@ -75,7 +75,7 @@ export default function Dashboard() {
           onClick={() => setSelectedBtn("title")}
         />
       </div>
-      <Search placeholder={searchPlaceholder} />
+      <Search placeholder={searchPlaceholder} onChange={filterSongs} value={searchValue}/>
       <div>
         {selectedBtn === "title" &&
           filteredSongs
