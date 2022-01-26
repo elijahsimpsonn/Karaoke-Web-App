@@ -6,3 +6,16 @@
     text-transform: uppercase;
     margin-bottom: 8px;
 }
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.song-title {
+    padding-left: 10px;
+}
+
+.song-artist {
+    padding-right: 10px;
+}
