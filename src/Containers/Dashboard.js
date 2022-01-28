@@ -62,17 +62,20 @@ export default function Dashboard() {
       <Button
         title="VIEW WEEKLY SCHEDULE"
         onClick={() => setSelectedBtn("schedule")}
+        active={selectedBtn === "schedule"}
       />
       <hr className="line" />
       <div className="selection-buttons">
         <Button
           title="VIEW BY ARTIST"
           onClick={() => setSelectedBtn("artist")}
+          active={selectedBtn === "artist"}
         />
         <Button
           title="VIEW BY TITLE"
           btnClass="title-btn"
           onClick={() => setSelectedBtn("title")}
+          active={selectedBtn === "title"}
         />
       </div>
       <Search placeholder={searchPlaceholder} onChange={filterSongs} value={searchValue}/>
