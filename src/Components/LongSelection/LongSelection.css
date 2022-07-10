@@ -19,3 +19,8 @@
 .song-artist {
     padding-right: 10px;
 }
+
+.selected {
+    border: none;
+    background-color: #3f51b5;
+}

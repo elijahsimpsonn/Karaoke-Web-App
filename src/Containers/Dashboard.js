@@ -9,9 +9,14 @@ export default function Dashboard() {
 
   const [selectedBtn, setSelectedBtn] = useState("artist");
   const [searchValue, setSearchValue] = useState("");
+  const [selectedArtist, setSelectedArtist] = useState("");
 
   const title = "Marshall Entertainment";
-  const searchPlaceholder = "Search By Artist...";
+  const searchPlaceholder = `${
+    selectedBtn === "artist"
+      ? "Search by Artist Name..."
+      : "Search by Song Title..."
+  }`;
   const mockData = [
     {
       artist: "AC/DC",
@@ -78,7 +83,13 @@ export default function Dashboard() {
           active={selectedBtn === "title"}
         />
       </div>
-      <Search placeholder={searchPlaceholder} onChange={filterSongs} value={searchValue}/>
+      {selectedBtn !== "schedule" && (
+        <Search
+          placeholder={searchPlaceholder}
+          onChange={filterSongs}
+          value={searchValue}
+        />
+      )}
       <div>
         {selectedBtn === "title" &&
           filteredSongs
@@ -99,6 +110,8 @@ export default function Dashboard() {
                 key={index}
                 type={selectedBtn}
                 artist={song.artist}
+                onClick={() => setSelectedArtist(song.artist)}
+                selected={song.artist === selectedArtist}
               />
             ))}
       </div>
