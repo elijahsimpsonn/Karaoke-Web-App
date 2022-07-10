@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Components/Button/Button";
 import Search from "../Components/Search/Search";
 import LongSelection from "../Components/LongSelection/LongSelection";
@@ -45,6 +45,11 @@ export default function Dashboard() {
   ];
 
   const [filteredSongs, setFilteredSongs] = useState(mockData);
+
+  const setNewSelectedArtist = (artist) => {
+    setSelectedArtist(artist)
+    console.log(selectedArtist)
+  }
 
   const filterSongs = (event) => {
     const value = event.target.value;
@@ -110,7 +115,7 @@ export default function Dashboard() {
                 key={index}
                 type={selectedBtn}
                 artist={song.artist}
-                onClick={() => setSelectedArtist(song.artist)}
+                onClick={() => setNewSelectedArtist(song.artist)}
                 selected={song.artist === selectedArtist}
               />
             ))}

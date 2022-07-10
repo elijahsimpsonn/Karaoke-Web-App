@@ -2,13 +2,11 @@ import React from "react";
 import "./LongSelection.css";
 
 export default function LongSelection(props) {
-  const { type, artist, title, selected} = props
-
-  console.log(selected)
+  const {type, artist, title, selected, onClick} = props
 
   if (type && type === "artist") {
     return (
-      <div className={`long-selection-container ${selected ? 'selected' : ''}`}>
+      <div className={`long-selection-container ${selected ? 'selected' : ''}`} onClick={onClick}>
         <div className="long-selection-text">{artist}</div>
       </div>
     );
