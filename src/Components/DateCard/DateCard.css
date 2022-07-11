@@ -1,0 +1,34 @@
+.datecard-container {
+    border: 1px solid white;
+    margin-bottom: 8px;
+}
+
+.datecard-line {
+    width: 65%;
+}
+
+.date {
+    margin-top: 5px;
+    display: block;
+    text-align: center;
+}
+
+.place-time-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.place {
+
+}
+
+.time {
+
+}
+
+.address {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+}

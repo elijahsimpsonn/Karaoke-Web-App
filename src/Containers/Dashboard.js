@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Components/Button/Button";
 import Search from "../Components/Search/Search";
+import DateCard from "../Components/DateCard/DateCard";
 import LongSelection from "../Components/LongSelection/LongSelection";
 import "./Dashboard.css";
 
@@ -64,6 +65,50 @@ export default function Dashboard() {
       title: "Dixieland Delight",
     },
   ];
+  const mockSchudule = [
+    {
+      date: "July 10, 2022",
+      place: "Marigold Bar",
+      startTime: "21:00:00",
+      endTime: "1:00:00",
+      address: "2122 S Weinbach Ave, Evansville IN, 47714"
+    },
+    {
+      date: "July 11, 2022",
+      place: "Marigold Bar",
+      startTime: "21:00:00",
+      endTime: "1:00:00",
+      address: "2122 S Weinbach Ave, Evansville IN, 47714"
+    },
+    {
+      date: "July 12, 2022",
+      place: "The Sportsden Bar and Grill",
+      startTime: "21:00:00",
+      endTime: "1:00:00",
+      address: "701 N Weinbach Ave, Evansville IN, 47711"
+    },
+    {
+      date: "July 13, 2022",
+      place: "Marigold Bar",
+      startTime: "21:00:00",
+      endTime: "1:00:00",
+      address: "2122 S Weinbach Ave, Evansville IN, 47714"
+    },
+    {
+      date: "July 14, 2022",
+      place: "Marigold Bar",
+      startTime: "21:00:00",
+      endTime: "1:00:00",
+      address: "2122 S Weinbach Ave, Evansville IN, 47714"
+    },
+    {
+      date: "July 15, 2022",
+      place: "Marigold Bar",
+      startTime: "21:00:00",
+      endTime: "1:00:00",
+      address: "2122 S Weinbach Ave, Evansville IN, 47714"
+    },
+  ]
 
   const [filteredSongs, setFilteredSongs] = useState(mockData);
   const [fliteredArtist, setFilteredArtist] = useState(artistList);
@@ -90,6 +135,7 @@ export default function Dashboard() {
 
   const filterArtist = (event => {
     const value = event.target.value;
+    setSelectedArtist("")
     if (value !== "") {
       const results = artistList.filter((artist) => {
         return artist.toLowerCase().includes(value.toLowerCase());
@@ -171,6 +217,18 @@ export default function Dashboard() {
                 selected={artist === selectedArtist}
               />
             ))}{" "}
+        {selectedBtn === "schedule" &&
+          mockSchudule.map((card, index) => ( 
+            <DateCard 
+              key={index}
+              date={card.date}
+              place={card.place}
+              startTime={card.startTime}
+              endTime={card.endTime}
+              address={card.address}
+            />
+          ))
+        }    
       </div>{" "}
     </div>
   );
