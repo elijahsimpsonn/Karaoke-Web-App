@@ -1,10 +1,13 @@
 .long-selection-container {
     border: 1px solid white;
     border-radius: 4px;
-    text-align: center;
     padding: 2px 0px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.long-selection-text {
+    text-align: center;
 }
 
 .title-container {
@@ -23,4 +26,18 @@
 .selected {
     border: none;
     background-color: #3f51b5;
+}
+
+.songlist-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 4px;
+
+}
+
+.songlist-song {
+    margin-left: 10px;
+    padding: 3px 0px 3px 0px;
 }

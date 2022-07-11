@@ -68,10 +68,6 @@ export default function Dashboard() {
   const [filteredSongs, setFilteredSongs] = useState(mockData);
   const [fliteredArtist, setFilteredArtist] = useState(artistList);
 
-  useEffect(() => {
-
-  })
-
   const setNewSelectedArtist = (artist) => {
     setSelectedArtist(artist);
   };
@@ -110,11 +106,7 @@ export default function Dashboard() {
       .map((object) => object.artist)
       .filter((value, index, self) => self.indexOf(value) === index);
     setArtistList(results);
-    console.log("artistList:", artistList)
   };
-
-  console.log("filteredArtist:", fliteredArtist);
-  console.log("filteredSongs:", filteredSongs);
 
   return (
     <div className="dashboard">

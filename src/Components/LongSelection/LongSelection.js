@@ -6,9 +6,20 @@ export default function LongSelection(props) {
 
   if (type && type === "artist") {
     return (
+      <>
       <div className={`long-selection-container ${selected ? 'selected' : ''}`} onClick={onClick}>
         <div className="long-selection-text">{artist}</div>
       </div>
+      {selected && (
+        <div className="songlist-container">
+          <span className="songlist-song">title 1</span>
+          <span className="songlist-song">title 2</span>
+          <span className="songlist-song">title 3</span>
+          <span className="songlist-song">title 4</span>
+          <span className="songlist-song">title 5</span>
+        </div>
+      )}
+      </>
     );
   } else if (type && type === 'title') {
       return (
