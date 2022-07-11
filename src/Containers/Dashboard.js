@@ -10,6 +10,7 @@ export default function Dashboard() {
   const [selectedBtn, setSelectedBtn] = useState("title");
   const [searchValue, setSearchValue] = useState("");
   const [selectedArtist, setSelectedArtist] = useState("");
+  const [artistList, setArtistList] = useState([])
 
   const title = "Marshall Entertainment";
   const searchPlaceholder = `${
@@ -65,16 +66,20 @@ export default function Dashboard() {
   ];
 
   const [filteredSongs, setFilteredSongs] = useState(mockData);
-  const [fliteredArtist, setFilteredArtist] = useState(mockData);
+  const [fliteredArtist, setFilteredArtist] = useState(artistList);
+
+  useEffect(() => {
+
+  })
 
   const setNewSelectedArtist = (artist) => {
     setSelectedArtist(artist);
-    console.log(selectedArtist);
   };
 
   const filterSongs = (event) => {
     const value = event.target.value;
     if (value !== "") {
+      if (selectedBtn === "title") {}
       const results = mockData.filter((song) => {
         if (selectedBtn === "title") {
           return song.title.toLowerCase().includes(value.toLowerCase());
@@ -87,14 +92,29 @@ export default function Dashboard() {
     setSearchValue(value);
   };
 
-  const filterArtist = () => {
+  const filterArtist = (event => {
+    const value = event.target.value;
+    if (value !== "") {
+      const results = artistList.filter((artist) => {
+        return artist.toLowerCase().includes(value.toLowerCase());
+      })
+      setFilteredArtist(results)
+    } else {
+      setFilteredArtist(artistList)
+    }
+    setSearchValue(value)
+  })
+
+  const removeDuplicateArtist = () => {
     const results = mockData
       .map((object) => object.artist)
       .filter((value, index, self) => self.indexOf(value) === index);
-    setFilteredArtist(results);
+    setArtistList(results);
+    console.log("artistList:", artistList)
   };
 
-  console.log(fliteredArtist);
+  console.log("filteredArtist:", fliteredArtist);
+  console.log("filteredSongs:", filteredSongs);
 
   return (
     <div className="dashboard">
@@ -109,7 +129,10 @@ export default function Dashboard() {
         <Button
           title="VIEW BY ARTIST"
           onClick={() => {
-            filterArtist();
+            setFilteredArtist(artistList)
+            setSelectedArtist("")
+            setSearchValue("")
+            removeDuplicateArtist();
             setSelectedBtn("artist");
           }}
           active={selectedBtn === "artist"}
@@ -117,7 +140,10 @@ export default function Dashboard() {
         <Button
           title="VIEW BY TITLE"
           btnClass="title-btn"
-          onClick={() => setSelectedBtn("title")}
+          onClick={() => {
+            setSearchValue("")
+            setSelectedBtn("title")
+          }}
           active={selectedBtn === "title"}
         />{" "}
       </div>{" "}
