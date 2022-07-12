@@ -148,11 +148,16 @@ export default function Dashboard() {
   })
 
   const removeDuplicateArtist = () => {
+    console.log("running")
     const results = mockData
       .map((object) => object.artist)
       .filter((value, index, self) => self.indexOf(value) === index);
     setArtistList(results);
   };
+
+  useEffect(() => {
+    removeDuplicateArtist()
+  }, [])
 
   return (
     <div className="dashboard">
@@ -167,10 +172,10 @@ export default function Dashboard() {
         <Button
           title="VIEW BY ARTIST"
           onClick={() => {
+            removeDuplicateArtist();
             setFilteredArtist(artistList)
             setSelectedArtist("")
             setSearchValue("")
-            removeDuplicateArtist();
             setSelectedBtn("artist");
           }}
           active={selectedBtn === "artist"}
