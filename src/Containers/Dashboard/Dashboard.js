@@ -1,117 +1,30 @@
 import React, { useState, useEffect } from "react";
-import Button from "../Components/Button/Button";
-import Search from "../Components/Search/Search";
-import DateCard from "../Components/DateCard/DateCard";
-import LongSelection from "../Components/LongSelection/LongSelection";
+import Button from "../../Components/Button/Button";
+import Search from "../../Components/Search/Search";
+import DateCard from "../../Components/DateCard/DateCard";
+import LongSelection from "../../Components/LongSelection/LongSelection";
+import { mockData } from "../../MockData/mock_files";
+import { mockSchedule } from "../../MockData/mock_schedule";
 import "./Dashboard.css";
 
 export default function Dashboard() {
-  // Mock data just to get something going on the frontend while I figure out the backend
-
   const [selectedBtn, setSelectedBtn] = useState("title");
   const [searchValue, setSearchValue] = useState("");
   const [selectedArtist, setSelectedArtist] = useState("");
-  const [artistList, setArtistList] = useState([])
+  const [artistList, setArtistList] = useState([]);
+  const [filteredSongs, setFilteredSongs] = useState(mockData);
+  const [fliteredArtist, setFilteredArtist] = useState(artistList);
 
-  const title = "Marshall Entertainment";
+  //runs removeDuplicateArtist on load of application
+  useEffect(() => {
+    removeDuplicateArtist();
+  }, []);
+
   const searchPlaceholder = `${
     selectedBtn === "artist"
       ? "Search by Artist Name..."
       : "Search by Song Title..."
   }`;
-  const mockData = [
-    {
-      artist: "AC/DC",
-      title: "Back In Black",
-    },
-    {
-      artist: "AC/DC",
-      title: "t.n.t",
-    },
-    {
-      artist: "AC/DC",
-      title: "big balls",
-    },
-    {
-      artist: "AC/DC",
-      title: "Dirty Deeds Done Dirt Cheap",
-    },
-    {
-      artist: "ACTION BRONSON",
-      title: "Actin Crazy",
-    },
-    {
-      artist: "ACTION BRONSON",
-      title: "baby blue",
-    },
-    {
-      artist: "ACTION BRONSON",
-      title: "Imported Goods",
-    },
-    {
-      artist: "Adele",
-      title: "Rolling in the Deep",
-    },
-    {
-      artist: "Aerosmith",
-      title: "I Don't Want To Miss a Thing",
-    },
-    {
-      artist: "Al Green",
-      title: "For the Good Times",
-    },
-    {
-      artist: "alabama",
-      title: "Dixieland Delight",
-    },
-  ];
-  const mockSchudule = [
-    {
-      date: "July 10, 2022",
-      place: "Marigold Bar",
-      startTime: "21:00:00",
-      endTime: "1:00:00",
-      address: "2122 S Weinbach Ave, Evansville IN, 47714"
-    },
-    {
-      date: "July 11, 2022",
-      place: "Marigold Bar",
-      startTime: "21:00:00",
-      endTime: "1:00:00",
-      address: "2122 S Weinbach Ave, Evansville IN, 47714"
-    },
-    {
-      date: "July 12, 2022",
-      place: "The Sportsden Bar and Grill",
-      startTime: "21:00:00",
-      endTime: "1:00:00",
-      address: "701 N Weinbach Ave, Evansville IN, 47711"
-    },
-    {
-      date: "July 13, 2022",
-      place: "Marigold Bar",
-      startTime: "21:00:00",
-      endTime: "1:00:00",
-      address: "2122 S Weinbach Ave, Evansville IN, 47714"
-    },
-    {
-      date: "July 14, 2022",
-      place: "Marigold Bar",
-      startTime: "21:00:00",
-      endTime: "1:00:00",
-      address: "2122 S Weinbach Ave, Evansville IN, 47714"
-    },
-    {
-      date: "July 15, 2022",
-      place: "Marigold Bar",
-      startTime: "21:00:00",
-      endTime: "1:00:00",
-      address: "2122 S Weinbach Ave, Evansville IN, 47714"
-    },
-  ]
-
-  const [filteredSongs, setFilteredSongs] = useState(mockData);
-  const [fliteredArtist, setFilteredArtist] = useState(artistList);
 
   const setNewSelectedArtist = (artist) => {
     setSelectedArtist(artist);
@@ -120,7 +33,8 @@ export default function Dashboard() {
   const filterSongs = (event) => {
     const value = event.target.value;
     if (value !== "") {
-      if (selectedBtn === "title") {}
+      if (selectedBtn === "title") {
+      }
       const results = mockData.filter((song) => {
         if (selectedBtn === "title") {
           return song.title.toLowerCase().includes(value.toLowerCase());
@@ -133,35 +47,31 @@ export default function Dashboard() {
     setSearchValue(value);
   };
 
-  const filterArtist = (event => {
+  const filterArtist = (event) => {
     const value = event.target.value;
-    setSelectedArtist("")
+    setSelectedArtist("");
     if (value !== "") {
       const results = artistList.filter((artist) => {
         return artist.toLowerCase().includes(value.toLowerCase());
-      })
-      setFilteredArtist(results)
+      });
+      setFilteredArtist(results);
     } else {
-      setFilteredArtist(artistList)
+      setFilteredArtist(artistList);
     }
-    setSearchValue(value)
-  })
+    setSearchValue(value);
+  };
 
   const removeDuplicateArtist = () => {
-    console.log("running")
+    console.log("running");
     const results = mockData
       .map((object) => object.artist)
       .filter((value, index, self) => self.indexOf(value) === index);
     setArtistList(results);
   };
 
-  useEffect(() => {
-    removeDuplicateArtist()
-  }, [])
-
   return (
     <div className="dashboard">
-      <div className="title"> {title} </div>{" "}
+      <div className="title"> Marshall Entertainment </div>{" "}
       <Button
         title="VIEW WEEKLY SCHEDULE"
         onClick={() => setSelectedBtn("schedule")}
@@ -173,9 +83,9 @@ export default function Dashboard() {
           title="VIEW BY ARTIST"
           onClick={() => {
             removeDuplicateArtist();
-            setFilteredArtist(artistList)
-            setSelectedArtist("")
-            setSearchValue("")
+            setFilteredArtist(artistList);
+            setSelectedArtist("");
+            setSearchValue("");
             setSelectedBtn("artist");
           }}
           active={selectedBtn === "artist"}
@@ -184,8 +94,8 @@ export default function Dashboard() {
           title="VIEW BY TITLE"
           btnClass="title-btn"
           onClick={() => {
-            setSearchValue("")
-            setSelectedBtn("title")
+            setSearchValue("");
+            setSelectedBtn("title");
           }}
           active={selectedBtn === "title"}
         />{" "}
@@ -223,8 +133,8 @@ export default function Dashboard() {
               />
             ))}{" "}
         {selectedBtn === "schedule" &&
-          mockSchudule.map((card, index) => ( 
-            <DateCard 
+          mockSchedule.map((card, index) => (
+            <DateCard
               key={index}
               date={card.date}
               place={card.place}
@@ -232,8 +142,7 @@ export default function Dashboard() {
               endTime={card.endTime}
               address={card.address}
             />
-          ))
-        }    
+          ))}
       </div>{" "}
     </div>
   );
