@@ -28,6 +28,9 @@ export default function Dashboard() {
   }`;
 
   const setNewSelectedArtist = (artist) => {
+    if(artist === selectedArtist) {
+      setSelectedArtist("")
+    }else 
     setSelectedArtist(artist);
   };
 
@@ -61,14 +64,11 @@ export default function Dashboard() {
   };
 
   const removeDuplicateArtist = () => {
-    console.log("running");
     const results = mockData
       .map((object) => object.artist)
       .filter((value, index, self) => self.indexOf(value) === index);
     setArtistList(results);
   };
-
-  console.log(fliteredArtist)
 
   return (
     <div className="dashboard">
